@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import "../../CSS/randomCountry.css"
+import { Link } from 'react-router-dom';
 
 function RandomCountry({ countries }) {
 
@@ -17,7 +18,7 @@ function RandomCountry({ countries }) {
     }
 
     return (
-        <div>
+        <Link key={randCountry.numericCode} to={`details/${randCountry.alpha3Code}`}>
             <div className="rand_country">
                 <div key={randCountry.numericCode} className="rand_country_card">
                     <div className='rand_country_img'>
@@ -37,7 +38,7 @@ function RandomCountry({ countries }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

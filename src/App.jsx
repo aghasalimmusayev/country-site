@@ -6,6 +6,7 @@ import getData from './JS/service'
 import Header from './MainComponents/Header'
 import AllCountry from './MainComponents/AllCountry'
 import Regions from './MainComponents/Regions'
+import Details from './MainComponents/ChildComponent/Details'
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
           </>
         } />
         <Route path='/region/:regionName' element={<Regions countries={countries}/>}/>
+        <Route path='/details/:alphaCode' element={<Details countries={countries}/>}/>
       </Routes>
     </>
   )
