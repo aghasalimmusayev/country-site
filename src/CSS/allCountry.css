@@ -38,7 +38,7 @@
 
 /* Gradient border animation on hover */
 .country-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -134,7 +134,7 @@
 }
 
 .country-card .capital::before {
-  content: '🏛️';
+  content: "🏛️";
   position: absolute;
   left: 0;
   top: 50%;
@@ -166,7 +166,7 @@
 }
 
 .pop-area .area::before {
-  content: '📐';
+  content: "📐";
   position: absolute;
   left: 0;
   top: 50%;
@@ -179,7 +179,7 @@
 }
 
 .pop-area .population::before {
-  content: '👥';
+  content: "👥";
   position: absolute;
   left: 0;
   top: 50%;
@@ -198,7 +198,7 @@
 }
 
 .country-card .currency::before {
-  content: '💰';
+  content: "💰";
   position: absolute;
   left: 0;
   top: 50%;
@@ -208,7 +208,7 @@
 
 /* ===== LOADING STATE / EMPTY STATE ===== */
 .countries:empty::after {
-  content: 'Loading countries...';
+  content: "Loading countries...";
   grid-column: 1 / -1;
   text-align: center;
   padding: 3rem;
@@ -218,10 +218,60 @@
   border-radius: 20px;
   border: 2px dashed var(--border-color);
 }
+.more_btn_box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
 
-/* ===== RESPONSIVE DESIGN ===== */
+.more_btn {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-/* Large Desktop */
+.more_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  background: linear-gradient(45deg, #2980b9, #3498db);
+}
+
+.more_btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.more_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.more_btn:hover::before {
+  left: 100%;
+}
+
 @media (min-width: 1400px) {
   .countries {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -229,7 +279,6 @@
   }
 }
 
-/* Desktop */
 @media (max-width: 1200px) {
   .countries {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -237,41 +286,40 @@
   }
 }
 
-/* Tablet */
 @media (max-width: 768px) {
   .countries {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     padding: 2rem 1rem;
   }
-  
+
   .country-card {
     padding: 1.2rem;
     border-radius: 16px;
   }
-  
+
   .country-card > div:first-child {
     height: 150px;
     margin-bottom: 1.2rem;
     border-radius: 12px;
   }
-  
+
   .country-card h3 {
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
   }
-  
+
   .country-card p {
     font-size: 0.9rem;
     margin-bottom: 0.6rem;
   }
-  
+
   .pop-area {
     padding: 0.8rem;
     gap: 0.8rem;
     margin: 1rem 0;
   }
-  
+
   .pop-area p {
     font-size: 0.85rem;
   }
@@ -284,34 +332,34 @@
     gap: 1.2rem;
     padding: 1.5rem 0.5rem;
   }
-  
+
   .country-card {
     padding: 1rem;
     border-radius: 14px;
   }
-  
+
   .country-card > div:first-child {
     height: 140px;
     margin-bottom: 1rem;
   }
-  
+
   .country-card h3 {
     font-size: 1rem;
     margin-bottom: 0.7rem;
   }
-  
+
   .country-card p {
     font-size: 0.85rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .pop-area {
     grid-template-columns: 1fr;
     padding: 0.7rem;
     gap: 0.5rem;
     margin: 0.8rem 0;
   }
-  
+
   .country-card .region {
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;

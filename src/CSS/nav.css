@@ -45,6 +45,7 @@ nav {
   z-index: 1000;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.toggle_box {display: none;}
 nav::before {
   content: '';
   position: absolute;
@@ -148,6 +149,7 @@ nav::before {
   white-space: nowrap;
 }
 @media (max-width: 768px) {
+  .toggle_box {display: flex;}
   .nav_content {
     gap: 1rem;
     padding: 1rem 0;
@@ -188,8 +190,5 @@ nav::before {
   .navlinks a {
     padding: 0.5rem 0.8rem;
     font-size: 0.75rem;
-  }
-  .toggle_box {
-    align-self: flex-end;
   }
 }
