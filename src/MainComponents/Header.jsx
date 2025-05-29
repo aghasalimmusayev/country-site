@@ -1,6 +1,6 @@
-import React from 'react'
 import RandomCountry from './ChildComponent/RandomCountry'
 import { useState } from 'react'
+import "../CSS/header.css"
 
 function Header({ countries, text, searchCountry }) {
 

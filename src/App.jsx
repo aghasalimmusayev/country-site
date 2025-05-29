@@ -5,6 +5,7 @@ import Nav from './MainComponents/Nav'
 import getData from './JS/service'
 import Header from './MainComponents/Header'
 import AllCountry from './MainComponents/AllCountry'
+import Regions from './MainComponents/Regions'
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
             <AllCountry countries={filteredCountry} />
           </>
         } />
+        <Route path='/region/:regionName' element={<Regions countries={countries}/>}/>
       </Routes>
     </>
   )

@@ -11,10 +11,12 @@ function Nav({ regions }) {
         <nav>
             <div className="container">
                 <div className="nav_content">
-                    <i className="fa-solid fa-earth-americas"></i>
+                    <Link to={"/"}>
+                        <i className="fa-solid fa-earth-americas"></i>
+                    </Link>
                     <ul className="navlinks">
                         {regions.map((region, index) => (
-                            <NavLink key={index} to={"region"}>
+                            <NavLink key={index} to={`/region/${region}`}>
                                 <li>{region}</li>
                             </NavLink>
                         ))}

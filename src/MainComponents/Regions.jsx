@@ -1,10 +1,19 @@
-import { NavLink } from "react-router-dom"
-import "../CSS/allCountry.css"
+import React, { useEffect, useState } from 'react'
+import { NavLink, useParams } from 'react-router-dom';
 
-function AllCountry({ countries }) {
+function Regions({ countries }) {
+
+    const { regionName } = useParams()
+    const [regionCoutries, setRegionCoutries] = useState([]);
+
+    useEffect(() => {
+        const filtered = countries.filter(olkeler => olkeler.region === regionName)
+        setRegionCoutries(filtered)
+    }, [countries, regionName])
+
     return (
         <div className="countries">
-            {countries.map(country => (
+            {regionCoutries.map(country => (
                 <NavLink key={country.numericCode} to={`/details/${country.alpha3Code}`}>
                     <div className="country-card" >
                         <div>
@@ -22,7 +31,7 @@ function AllCountry({ countries }) {
                 </NavLink >
             ))}
         </div>
-    );
+    )
 }
 
-export default AllCountry
+export default Regions

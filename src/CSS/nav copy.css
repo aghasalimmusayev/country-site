@@ -1,0 +1,46 @@
+.navlinks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.navlinks a {
+    width: 100%;
+    color: #333;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.fa-earth-americas {
+    font-size: 2.2rem;
+    color: #0e6caa;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.fa-earth-americas:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+@media(min-width: 768px) {
+    .nav_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navlinks {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .navlinks a {
+        width: fit-content;
+    }
+}

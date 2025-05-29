@@ -1,5 +1,5 @@
-import React from 'react'
 import { useState, useEffect } from 'react';
+import "../../CSS/randomCountry.css"
 
 function RandomCountry({ countries }) {
 
@@ -26,7 +26,7 @@ function RandomCountry({ countries }) {
                             && <img src={randCountry.flags.png} alt={`${randCountry.name} flag`} />}
                     </div>
                     <div className="rand_country_info">
-                        <h3 className='rand_country_name'>{randCountry.name}</h3>
+                        <h3 className='rand_country_name'>{randCountry.name} - {randCountry.alpha3Code}</h3>
                         <p className="rand_country_region"><span>Region:</span> {randCountry.region}</p>
                         <p className="rand_country_capital"><span>Capital:</span> {randCountry.capital}</p>
                         <div className="rand_country_pop_area">
