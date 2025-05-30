@@ -1,11 +1,18 @@
 import ToggleDark from "../Components/ToggleDark.jsx"
 import MenuToggle from "../Components/MenuToggle.jsx"
-import "../CSS/nav.css"
+import "../CSS/nav2.css"
 import { Link, NavLink } from "react-router-dom"
-
+import { useState } from "react"
 
 function Nav({ regions }) {
 
+    const [navHandle, setNavhandle] = useState(true)
+
+    function handleMenu() {
+        console.log("evvel: " + navHandle);
+        setNavhandle(!navHandle)
+        console.log("sonra: " + navHandle);
+    }
 
     return (
         <nav>
@@ -14,7 +21,7 @@ function Nav({ regions }) {
                     <Link to={"/"}>
                         <i className="fa-solid fa-earth-americas"></i>
                     </Link>
-                    <ul className="navlinks">
+                    <ul className="navlinks" style={{ display: navHandle ? "none" : "flex" }}>
                         {regions.map((region, index) => (
                             <NavLink key={index} to={`/region/${region}`}>
                                 <li>{region}</li>
@@ -22,7 +29,7 @@ function Nav({ regions }) {
                         ))}
                     </ul>
                     <ToggleDark />
-                    <div className="toggle_box">
+                    <div className="toggle_box" onClick={handleMenu}>
                         <MenuToggle />
                     </div>
                 </div>

@@ -1,14 +1,30 @@
-.navlinks {
+nav .container{
+    width: 100%;
+}
+.nav_content{
+    position: relative;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+.navlinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
     flex-direction: column;
+    background-color: #fff;
     width: 100%;
     height: 100vh;
+    padding: 0 5%;
+    transition: all .3s;
 }
-
 .navlinks a {
     width: 100%;
     color: #333;
-    padding: 10px 0;
+    padding: 10px;
     transition: all 0.3s ease;
 }
 
@@ -31,9 +47,13 @@
         justify-content: space-between;
         align-items: center;
     }
+    .toggle_box{display: none;}
 
     .navlinks {
+        position: static;
+        display: flex;
         flex-direction: row;
+        justify-content: center;
         align-items: center;
         gap: 20px;
         width: fit-content;
