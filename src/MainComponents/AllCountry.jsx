@@ -4,9 +4,9 @@ import { useState } from "react";
 
 function AllCountry({ countries }) {
 
-    const [count, setCount] = useState(6)
+    const [count, setCount] = useState(8)
     function showMore() {
-        setCount(count + 6)
+        setCount(count + 8)
     }
 
     return (
@@ -24,7 +24,7 @@ function AllCountry({ countries }) {
                                 <p className="region">Region: {country.region}</p>
                                 <p className="capital">Capital: {country.capital}</p>
                                 <div className="pop-area">
-                                    <p className="area">Area: {country.area}</p>
+                                    <p className="area">Area: {country.area} km²</p>
                                     <p className="population">Population: {country.population}</p>
                                 </div>
                                 <p className="currency">Currency: {country.currencies?.[0]?.code || "N/A"}</p>

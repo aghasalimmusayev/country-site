@@ -31,7 +31,7 @@ function RandomCountry({ countries }) {
                         <p className="rand_country_region"><span>Region:</span> {randCountry.region}</p>
                         <p className="rand_country_capital"><span>Capital:</span> {randCountry.capital}</p>
                         <div className="rand_country_pop_area">
-                            <p className="rand_country_area"><span>Area:</span> {randCountry.area}</p>
+                            <p className="rand_country_area"><span>Area:</span> {randCountry.area} km²</p>
                             <p className="rand_country_population"><span>Population:</span> {randCountry.population}</p>
                         </div>
                         <p className="rand_country_currency"><span>Currency:</span> {randCountry.currencies?.[0]?.code || "N/A"}</p>
