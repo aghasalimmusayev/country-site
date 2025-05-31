@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import { Routes, Route } from "react-router-dom"
 import Nav from './MainComponents/Nav'
@@ -14,6 +14,7 @@ function App() {
   const [regions, setRegions] = useState([]);
   const [text, setText] = useState("");
   const [filteredCountry, setFilteredCountry] = useState([]);
+  const allCountryRef = useRef(null)
 
   useEffect(() => {
     let fetchData = async () => {
@@ -33,18 +34,22 @@ function App() {
     setRegions(regionlar)
   }, [countries])
 
-  let searchCountry = (e)=>{
-      setText(e.target.value)
-      console.log(text)
+  let searchCountry = (e) => {
+    setText(e.target.value)
+    console.log(text)
   }
 
-  useEffect(()=>{
-    if(text){
+  useEffect(() => {
+    if (text) {
       let filtered = countries.filter(country => country.name.toLowerCase().includes(text.toLowerCase()))
       setFilteredCountry(filtered)
     }
     else setFilteredCountry(countries)
   })
+
+  const scrollToAllCountry = () => {
+    allCountryRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <>
@@ -52,12 +57,12 @@ function App() {
       <Routes>
         <Route path={"/"} element={
           <>
-            <Header countries={countries} text={text} searchCountry={searchCountry} />
-            <AllCountry countries={filteredCountry} />
+            <Header countries={countries} text={text} searchCountry={searchCountry} scrollToAllCountry={scrollToAllCountry} />
+            <AllCountry countries={filteredCountry} ref={allCountryRef} />
           </>
         } />
-        <Route path='/region/:regionName' element={<Regions countries={countries}/>}/>
-        <Route path='/details/:alphaCode' element={<Details countries={countries}/>}/>
+        <Route path='/region/:regionName' element={<Regions countries={countries} />} />
+        <Route path='/details/:alphaCode' element={<Details countries={countries} />} />
       </Routes>
     </>
   )

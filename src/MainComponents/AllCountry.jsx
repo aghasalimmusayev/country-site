@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import "../CSS/allCountry.css"
 import { useState } from "react";
 
-function AllCountry({ countries }) {
+function AllCountry({ countries, ref }) {
 
     const [count, setCount] = useState(8)
     function showMore() {
@@ -11,7 +11,7 @@ function AllCountry({ countries }) {
 
     return (
         <>
-            <div className="countries">
+            <div className="countries" ref={ref}>
                 {countries
                     .slice(0, count)
                     .map(country => (
